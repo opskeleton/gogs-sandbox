@@ -17,6 +17,12 @@ class gogs(
     timeout       => 6000
   }
 
+  -> exec{'chown gogs':
+    command => "chown ${user}:${user} /usr/share/gogs -R",
+    user    => 'root',
+    path    => ['/usr/bin','/bin',]
+  }
+
   package{'git':
     ensure  => present
   }
@@ -27,8 +33,9 @@ class gogs(
 
   systemd::unit_file { 'gogs.service':
     content => template('gogs/gogs.service.erb'),
-  } ~> service {'gogs':
-      ensure => 'running',
+  } -> service {'gogs':
+      ensure  => 'running',
+      require => Archive[$version]
   }
 
 }
