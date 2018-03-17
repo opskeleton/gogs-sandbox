@@ -1,0 +1,22 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    camptocamp-systemd (1.1.1)
+      puppetlabs-stdlib (< 5.0.0, >= 4.13.1)
+    puppetlabs-apt (4.5.1)
+      puppetlabs-stdlib (< 5.0.0, >= 4.16.0)
+    puppetlabs-stdlib (4.25.0)
+
+GIT
+  remote: git://github.com/pulling-strings/puppet-archive.git
+  ref: master
+  sha: 0e06e48c0e0d77884ac3effc4c083bf9c039b4cf
+  specs:
+    strings-archive (0.2.0)
+
+DEPENDENCIES
+  camptocamp-systemd (>= 0)
+  puppetlabs-apt (>= 0)
+  puppetlabs-stdlib (>= 0)
+  strings-archive (>= 0)
+
